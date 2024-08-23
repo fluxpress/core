@@ -1,0 +1,9 @@
+{
+  "github": {
+    "owner": "liangpengyv",
+    "repo": "git-blog"
+  },
+  "theme": {
+    "perPage": 3
+  }
+}

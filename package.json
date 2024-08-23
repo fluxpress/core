@@ -27,12 +27,23 @@
   },
   "homepage": "https://github.com/fluxpress/core#readme",
   "description": "",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "ejs": "^3.1.10",
+    "fs-extra": "^11.2.0",
+    "marked": "^14.0.0",
+    "octokit": "^4.0.2"
+  },
   "devDependencies": {
     "@eslint/js": "^9.9.0",
+    "@types/ejs": "^3.1.5",
+    "@types/fs-extra": "^11.0.4",
+    "@types/node": "^22.5.0",
     "eslint": "^9.9.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.2.1",
     "globals": "^15.9.0",
-    "prettier": "^3.3.3"
+    "prettier": "^3.3.3",
+    "typescript": "^5.5.4"
   }
 }
