@@ -6,6 +6,14 @@ const plugins = [resolve(), commonjs(), json()]
 
 export default [
   {
+    input: 'src/index.js',
+    output: {
+      file: 'dist/index.bundle.js',
+      format: 'esm',
+    },
+    plugins,
+  },
+  {
     input: 'src/fetch/index.js',
     output: {
       file: 'dist/fetch.bundle.js',

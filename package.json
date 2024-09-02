@@ -8,6 +8,7 @@
   "bin": {
     "fluxpress": "bin/index.js"
   },
+  "main": "dist/index.bundle.js",
   "scripts": {
     "dev": "rollup --config --watch",
     "build": "rollup --config"
@@ -40,7 +41,8 @@
     "access": "public"
   },
   "files": [
-    "bin/"
+    "bin/",
+    "dist/"
   ],
   "repository": {
     "type": "git",
