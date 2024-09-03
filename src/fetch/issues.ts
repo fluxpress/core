@@ -1,13 +1,19 @@
-import 'dotenv/config'
 import { Octokit } from 'octokit'
 
 import { GITHUB_REST_API_VERSION } from '../constants/project.js'
 import { readFluxPressConfig } from '../utils/file.js'
 
-const octokit = new Octokit({ auth: process.env.GITHUB_TOKEN })
-const fluxpressConfig = await readFluxPressConfig()
-
 export async function fetchIssues() {
+  const fluxpressConfig = await readFluxPressConfig()
+  if (!fluxpressConfig) return
+
+  const GITHUB_TOKEN = process.env.GITHUB_TOKEN
+  if (!GITHUB_TOKEN) {
+    console.warn(`[FluxPress] 未找到 GITHUB_TOKEN`)
+  }
+
+  const octokit = new Octokit({ auth: GITHUB_TOKEN })
+
   const issues = []
   const issuesIterator = octokit.paginate.iterator(
     octokit.rest.issues.listForRepo,
@@ -38,7 +44,7 @@ export async function fetchIssues() {
       for await (const { data: currentPageComments } of commentsIterator) {
         comments.push(...currentPageComments)
       }
-      ;(currentPageIssues[i] as any).comments_data = comments
+      // currentPageIssues[i].comments_data = comments
     }
     issues.push(...currentPageIssues)
   }

@@ -25,7 +25,6 @@
     "@rollup/plugin-commonjs": "^26.0.1",
     "@rollup/plugin-json": "^6.1.0",
     "@rollup/plugin-node-resolve": "^15.2.3",
-    "@rollup/plugin-typescript": "^11.1.6",
     "@types/ejs": "^3.1.5",
     "@types/eslint__js": "^8.42.3",
     "@types/fs-extra": "^11.0.4",
@@ -37,6 +36,7 @@
     "globals": "^15.9.0",
     "prettier": "^3.3.3",
     "rollup": "^4.21.0",
+    "rollup-plugin-dts": "^6.1.1",
     "typescript": "^5.5.4",
     "typescript-eslint": "^8.4.0"
   },

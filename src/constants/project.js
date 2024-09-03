@@ -7,3 +7,9 @@ export const OUTPUT_DIR = 'public'
 
 export const DATA_DIR = 'data'
 export const DATA_PATH_OF_ISSUES = path.join(DATA_DIR, 'issues.json')
+
+export const FLUX_PRESS_CONFIG_PATH = path.join(
+  process.cwd(),
+  'fluxpress.config.json',
+)
+export const ENV_PATH = path.join(process.cwd(), '.env')

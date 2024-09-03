@@ -35,4 +35,3 @@ out/
 ### Others ###
 .env
 fluxpress.config.json
-built/

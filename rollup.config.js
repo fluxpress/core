@@ -1,13 +1,13 @@
 import resolve from '@rollup/plugin-node-resolve'
 import commonjs from '@rollup/plugin-commonjs'
 import json from '@rollup/plugin-json'
-import typescript from '@rollup/plugin-typescript'
+import { dts } from 'rollup-plugin-dts'
 
-const plugins = [resolve(), commonjs(), json(), typescript()]
+const plugins = [resolve(), commonjs(), json()]
 
 export default [
   {
-    input: 'src/cli/index.js',
+    input: 'out/src/cli/index.js',
     output: {
       file: 'dist/cli.js',
       format: 'esm',
@@ -15,11 +15,27 @@ export default [
     plugins,
   },
   {
-    input: 'src/index.ts',
+    input: 'out/src/cli/index.d.ts',
+    output: {
+      file: 'dist/cli.d.ts',
+      format: 'esm',
+    },
+    plugins: [dts()],
+  },
+  {
+    input: 'out/src/index.js',
     output: {
       file: 'dist/index.js',
       format: 'esm',
     },
     plugins,
+  },
+  {
+    input: 'out/src/index.d.ts',
+    output: {
+      file: 'dist/index.d.ts',
+      format: 'esm',
+    },
+    plugins: [dts()],
   },
 ]
