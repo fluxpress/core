@@ -34,3 +34,4 @@ out/
 
 ### Others ###
 .env
+fluxpress.config.js

@@ -6,25 +6,17 @@ const plugins = [resolve(), commonjs(), json()]
 
 export default [
   {
+    input: 'src/cli/index.js',
+    output: {
+      file: 'dist/cli.bundle.js',
+      format: 'esm',
+    },
+    plugins,
+  },
+  {
     input: 'src/index.js',
     output: {
       file: 'dist/index.bundle.js',
-      format: 'esm',
-    },
-    plugins,
-  },
-  {
-    input: 'src/fetch/index.js',
-    output: {
-      file: 'dist/fetch.bundle.js',
-      format: 'esm',
-    },
-    plugins,
-  },
-  {
-    input: 'src/generate/index.js',
-    output: {
-      file: 'dist/generate.bundle.js',
       format: 'esm',
     },
     plugins,

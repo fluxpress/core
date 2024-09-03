@@ -8,8 +8,8 @@ import {
   DATA_PATH_OF_ISSUES,
   DATA_PATH_OF_ISSUES_BY_LABEL,
   DATA_PATH_OF_ISSUES_BY_MILESTONE,
-} from '../../constants/project'
-import { github } from '../../config.json'
+} from '../constants/project'
+import { github } from '../config.json'
 
 const octokit = new Octokit({ auth: process.env.GITHUB_TOKEN })
 
@@ -152,7 +152,7 @@ async function saveDataAsFile(filePath, data) {
 async function main() {
   console.log('Fetching GitHub Issues, please wait...')
 
-  if (!(await fs.pathExists(DATA_DIR))) await fs.mkdir(DATA_DIR)
+  if (!(await fs.pathExists(DATA_DIR))) await fs.ensureDir(DATA_DIR)
 
   await saveDataAsFile(DATA_PATH_OF_ISSUES, await getIssues())
   await saveDataAsFile(DATA_PATH_OF_ISSUES_BY_LABEL, await getIssuesByLabel())

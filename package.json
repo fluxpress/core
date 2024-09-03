@@ -1,12 +1,12 @@
 {
   "name": "@fluxpress/core",
-  "version": "0.1.0-alpha",
+  "version": "0.1.1-alpha",
   "engines": {
     "node": ">=20.9.0"
   },
   "type": "module",
   "bin": {
-    "fluxpress": "bin/index.js"
+    "fluxpress": "bin/fluxpress.js"
   },
   "main": "dist/index.bundle.js",
   "scripts": {

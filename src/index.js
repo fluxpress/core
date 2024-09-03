@@ -1,5 +1,6 @@
-import fetch from './fetch'
+import { fetchIssues } from './fetch'
 
-export default {
-  fetch,
+const fluxpress = {
+  fetchIssues,
 }
+export default fluxpress

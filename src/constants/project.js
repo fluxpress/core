@@ -7,11 +7,3 @@ export const OUTPUT_DIR = 'public'
 
 export const DATA_DIR = 'data'
 export const DATA_PATH_OF_ISSUES = path.join(DATA_DIR, 'issues.json')
-export const DATA_PATH_OF_ISSUES_BY_LABEL = path.join(
-  DATA_DIR,
-  'issues-by-label.json',
-)
-export const DATA_PATH_OF_ISSUES_BY_MILESTONE = path.join(
-  DATA_DIR,
-  'issues-by-milestone.json',
-)
