@@ -2,9 +2,10 @@ import 'dotenv/config'
 import { Octokit } from 'octokit'
 
 import { GITHUB_REST_API_VERSION } from '../constants/project'
-import fluxpressConfig from '../../fluxpress.config'
+import { readFluxPressConfig } from '../utils/file'
 
 const octokit = new Octokit({ auth: process.env.GITHUB_TOKEN })
+const fluxpressConfig = await readFluxPressConfig()
 
 export async function fetchIssues() {
   const issues = []

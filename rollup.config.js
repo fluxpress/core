@@ -8,7 +8,7 @@ export default [
   {
     input: 'src/cli/index.js',
     output: {
-      file: 'dist/cli.bundle.js',
+      file: 'dist/cli.js',
       format: 'esm',
     },
     plugins,
@@ -16,7 +16,7 @@ export default [
   {
     input: 'src/index.js',
     output: {
-      file: 'dist/index.bundle.js',
+      file: 'dist/index.js',
       format: 'esm',
     },
     plugins,
