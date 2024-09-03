@@ -1,7 +1,7 @@
 import path from 'node:path'
-import { ensureDir, writeJSON, readJson } from 'fs-extra/esm'
+import { ensureDir, writeJSON, readJson } from 'fs-extra'
 
-import { DATA_DIR } from '../constants/project'
+import { DATA_DIR } from '../constants/project.js'
 
 export async function readFluxPressConfig() {
   return await readJson(path.join(process.cwd(), 'fluxpress.config.json'), {

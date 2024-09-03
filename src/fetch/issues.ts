@@ -1,8 +1,8 @@
 import 'dotenv/config'
 import { Octokit } from 'octokit'
 
-import { GITHUB_REST_API_VERSION } from '../constants/project'
-import { readFluxPressConfig } from '../utils/file'
+import { GITHUB_REST_API_VERSION } from '../constants/project.js'
+import { readFluxPressConfig } from '../utils/file.js'
 
 const octokit = new Octokit({ auth: process.env.GITHUB_TOKEN })
 const fluxpressConfig = await readFluxPressConfig()
@@ -38,7 +38,7 @@ export async function fetchIssues() {
       for await (const { data: currentPageComments } of commentsIterator) {
         comments.push(...currentPageComments)
       }
-      currentPageIssues[i].comments_data = comments
+      ;(currentPageIssues[i] as any).comments_data = comments
     }
     issues.push(...currentPageIssues)
   }

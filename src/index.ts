@@ -1,4 +1,4 @@
-import { fetchIssues } from './fetch'
+import { fetchIssues } from './fetch/issues.js'
 
 const fluxpress = {
   fetchIssues,

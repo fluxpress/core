@@ -25,6 +25,7 @@
     "@rollup/plugin-commonjs": "^26.0.1",
     "@rollup/plugin-json": "^6.1.0",
     "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-typescript": "^11.1.6",
     "@types/ejs": "^3.1.5",
     "@types/fs-extra": "^11.0.4",
     "@types/node": "^22.5.0",
@@ -34,7 +35,8 @@
     "execa": "^9.3.1",
     "globals": "^15.9.0",
     "prettier": "^3.3.3",
-    "rollup": "^4.21.0"
+    "rollup": "^4.21.0",
+    "typescript": "^5.5.4"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/",
