@@ -1,16 +1,13 @@
 import { Octokit } from 'octokit'
 
 import { GITHUB_REST_API_VERSION } from '../constants/project.js'
-import { readFluxPressConfig } from '../utils/file.js'
+import { readFluxPressConfig, readGitHubToken } from '../utils/config.js'
 
 export async function fetchIssues() {
   const fluxpressConfig = await readFluxPressConfig()
   if (!fluxpressConfig) return
 
-  const GITHUB_TOKEN = process.env.GITHUB_TOKEN
-  if (!GITHUB_TOKEN) {
-    console.warn(`[FluxPress] 未找到 GITHUB_TOKEN`)
-  }
+  const GITHUB_TOKEN = readGitHubToken()
 
   const octokit = new Octokit({ auth: GITHUB_TOKEN })
 

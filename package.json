@@ -16,6 +16,7 @@
   "dependencies": {
     "dotenv": "^16.4.5",
     "ejs": "^3.1.10",
+    "find-up-simple": "^1.0.0",
     "fs-extra": "^11.2.0",
     "marked": "^14.0.0",
     "octokit": "^4.0.2"
