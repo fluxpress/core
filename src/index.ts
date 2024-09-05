@@ -1,9 +1,10 @@
-import { fetchIssues } from './fetch/issues.js'
+// fetch
+export * from './fetch/index.js'
+export * from './fetch/index.types.js'
 
-const fluxpress = {
-  fetchIssues,
-}
-export default fluxpress
+// constants
+export * from './constants/index.js'
 
-// Types that can be used
-export { FluxPressConfig } from './utils/config.js'
+// utils
+export * from './utils/index.js'
+export * from './utils/index-types.js'

@@ -7,7 +7,7 @@ const plugins = [resolve(), commonjs(), json()]
 
 export default [
   {
-    input: 'out/index.js',
+    input: 'out/src/index.js',
     output: {
       file: 'dist/index.js',
       format: 'esm',
@@ -15,7 +15,7 @@ export default [
     plugins,
   },
   {
-    input: 'out/index.d.ts',
+    input: 'out/src/index.d.ts',
     output: {
       file: 'dist/index.d.ts',
       format: 'esm',

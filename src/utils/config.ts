@@ -4,13 +4,7 @@ import { exists } from 'fs-extra'
 
 import { FLUX_PRESS_CONFIG_PATH } from '../constants/path.js'
 import logger from './logger.js'
-
-export interface FluxPressConfig {
-  github: {
-    owner: string
-    repo: string
-  }
-}
+import { FluxPressConfig } from './config-types.js'
 
 export async function readFluxPressConfig() {
   if (!(await exists(FLUX_PRESS_CONFIG_PATH))) {
