@@ -1,13 +1,10 @@
 {
   "name": "@fluxpress/core",
-  "version": "0.1.1-alpha",
+  "version": "0.1.2-alpha",
   "engines": {
     "node": ">=20.9.0"
   },
   "type": "module",
-  "bin": {
-    "fluxpress": "bin/fluxpress.js"
-  },
   "main": "dist/index.js",
   "scripts": {
     "dev": "node scripts/dev.js",
@@ -46,7 +43,6 @@
     "access": "public"
   },
   "files": [
-    "bin/",
     "dist/"
   ],
   "repository": {
@@ -54,7 +50,8 @@
     "url": "git+https://github.com/fluxpress/core.git"
   },
   "keywords": [
-    "fluxpress"
+    "fluxpress",
+    "@fluxpress/core"
   ],
   "author": "liangpengyv",
   "license": "MIT",
