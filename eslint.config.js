@@ -1,6 +1,6 @@
-import tsEslint from 'typescript-eslint'
 import globals from 'globals'
 import js from '@eslint/js'
+import tsEslint from 'typescript-eslint'
 import eslintConfigPrettier from 'eslint-config-prettier'
 import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended'
 

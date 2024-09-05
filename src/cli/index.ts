@@ -1,3 +1,3 @@
 import { version } from '../../package.json'
 
-console.log('fluxpress version:', version)
+console.log('@fluxpress/core version:', version)
