@@ -4,7 +4,7 @@ import { GITHUB_REST_API_VERSION } from '../constants/project.js'
 import { readFluxPressConfig, readGitHubToken } from '../utils/config.js'
 import { FluxPressConfig } from '../utils/config-types.js'
 import { Comment, Issue, DataIssues, Label, Milestone } from './issues-types.js'
-import packageJson from '../../package.json'
+import packageJson from '../../package.json' assert { type: 'json' }
 
 async function getIssues(
   fluxpressConfig: FluxPressConfig,
