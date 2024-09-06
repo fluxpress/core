@@ -4,7 +4,7 @@ import { GITHUB_REST_API_VERSION } from '../constants/project.js'
 import { readFluxPressConfig, readGitHubToken } from '../utils/config.js'
 import { FluxPressConfig } from '../utils/config-types.js'
 import { Comment, Issue, DataIssues, Label, Milestone } from './issues-types.js'
-import { version } from '../../package.json'
+import packageJson from '../../package.json'
 
 async function getIssues(
   fluxpressConfig: FluxPressConfig,
@@ -111,7 +111,7 @@ export async function fetchDataIssues(): Promise<DataIssues> {
   const octokit = new Octokit({ auth: GITHUB_TOKEN })
 
   const data_issues: DataIssues = {
-    version,
+    version: packageJson.version,
     metadata: {
       fetch_time: new Date().toLocaleString(),
       github: {

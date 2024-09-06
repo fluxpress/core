@@ -1,11 +1,11 @@
 import path from 'node:path'
-import { ensureDir, writeJson, readJson } from 'fs-extra'
+import fs from 'fs-extra'
 
 export async function saveDataAsFile(filePath: string, data) {
-  await ensureDir(path.dirname(filePath))
-  await writeJson(filePath, data, { encoding: 'utf-8' })
+  await fs.ensureDir(path.dirname(filePath))
+  await fs.writeJson(filePath, data, { encoding: 'utf-8' })
 }
 
 export async function loadDataFromFile(filePath: string) {
-  return await readJson(filePath, { encoding: 'utf-8' })
+  return await fs.readJson(filePath, { encoding: 'utf-8' })
 }
