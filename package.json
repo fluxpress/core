@@ -13,10 +13,8 @@
   },
   "dependencies": {
     "dotenv": "^16.4.5",
-    "ejs": "^3.1.10",
     "find-up-simple": "^1.0.0",
     "fs-extra": "^11.2.0",
-    "marked": "^14.0.0",
     "octokit": "^4.0.2"
   },
   "devDependencies": {
@@ -25,7 +23,6 @@
     "@rollup/plugin-commonjs": "^26.0.1",
     "@rollup/plugin-json": "^6.1.0",
     "@rollup/plugin-node-resolve": "^15.2.3",
-    "@types/ejs": "^3.1.5",
     "@types/eslint__js": "^8.42.3",
     "@types/fs-extra": "^11.0.4",
     "@types/node": "^22.5.0",
