@@ -1,6 +1,6 @@
 import { Octokit } from 'octokit'
 
-import { GITHUB_REST_API_VERSION } from '../constants/project.js'
+import { GITHUB_REST_API_VERSION } from '../constants/app.js'
 import { readFluxPressConfig, readGitHubToken } from '../utils/config.js'
 import { FluxPressConfig } from '../utils/config-types.js'
 import { Comment, Issue, DataIssues, Label, Milestone } from './issues-types.js'

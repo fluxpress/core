@@ -9,10 +9,8 @@ function addPrefix(message: string) {
   return lines.map((line) => PREFIX + line).join('\n')
 }
 
-const logger = {
+export const logger = {
   info: (message: string) => console.info(addPrefix(message)),
   warn: (message: string) => console.warn(addPrefix(message)),
   error: (message: string) => console.error(addPrefix(message)),
 }
-
-export default logger

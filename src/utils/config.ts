@@ -1,27 +1,49 @@
 import 'dotenv/config'
 import path from 'node:path'
-import { exists } from 'fs-extra'
+import fs from 'fs-extra'
 
-import { FLUX_PRESS_CONFIG_PATH } from '../constants/path.js'
-import logger from './logger.js'
+import { logger } from './logger.js'
 import { FluxPressConfig } from './config-types.js'
+import { APP_ROOT_PATH } from '../constants/path.js'
 
 export async function readFluxPressConfig() {
-  if (!(await exists(FLUX_PRESS_CONFIG_PATH))) {
-    logger.error(`未找到配置文件：${path.basename(FLUX_PRESS_CONFIG_PATH)}`)
+  const configFile = 'fluxpress.config.js'
+  const configPath = path.join(APP_ROOT_PATH, configFile)
+
+  if (!(await fs.exists(configPath))) {
+    logger.error(`未找到配置文件：${configFile}`)
     return
   }
 
-  const fluxpressConfig: FluxPressConfig = (
-    await import(FLUX_PRESS_CONFIG_PATH)
-  ).default
-
+  const fluxpressConfig: FluxPressConfig = (await import(configPath)).default
   if (!fluxpressConfig) {
-    logger.error(`请填写配置文件：${path.basename(FLUX_PRESS_CONFIG_PATH)}`)
+    logger.error(`请填写配置文件：${configFile}`)
     return
   }
 
   return fluxpressConfig
+}
+
+export async function readFluxPressThemeConfig<ThemeConfig>() {
+  const { theme } = await readFluxPressConfig()
+  if (!theme) return
+
+  const themeConfigFile = `fluxpress.config.${theme}.js`
+  const themeConfigPath = path.join(APP_ROOT_PATH, themeConfigFile)
+
+  if (!(await fs.pathExists(themeConfigPath))) {
+    logger.error(`未找到主题配置文件：${themeConfigFile}`)
+    return
+  }
+
+  const fluxpressThemeConfig: ThemeConfig = (await import(themeConfigPath))
+    .default
+  if (!fluxpressThemeConfig) {
+    logger.error(`请填写主题配置文件：${themeConfigFile}`)
+    return
+  }
+
+  return fluxpressThemeConfig
 }
 
 export function readGitHubToken() {

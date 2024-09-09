@@ -3,4 +3,5 @@ export interface FluxPressConfig {
     owner: string
     repo: string
   }
+  theme: string
 }
