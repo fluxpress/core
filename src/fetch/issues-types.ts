@@ -15,7 +15,7 @@ export type Label =
 export type Milestone =
   RestEndpointMethodTypes['issues']['listMilestones']['response']['data'][number]
 
-export interface DataIssues extends DataBase {
+export interface Issues extends DataBase {
   issues: Issue[]
   labels: Label[]
   milestones: Milestone[]

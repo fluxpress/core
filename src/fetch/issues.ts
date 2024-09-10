@@ -3,8 +3,32 @@ import { Octokit } from 'octokit'
 import { GITHUB_REST_API_VERSION } from '../constants/app.js'
 import { readFluxPressConfig, readGitHubToken } from '../utils/config.js'
 import { FluxPressConfig } from '../utils/config-types.js'
-import { Comment, Issue, DataIssues, Label, Milestone } from './issues-types.js'
+import { Comment, Issue, Issues, Label, Milestone } from './issues-types.js'
 import packageJson from '../../package.json' assert { type: 'json' }
+
+export async function fetchIssues(): Promise<Issues> {
+  const fluxpressConfig = await readFluxPressConfig()
+  if (!fluxpressConfig) return
+
+  const GITHUB_TOKEN = readGitHubToken()
+  const octokit = new Octokit({ auth: GITHUB_TOKEN })
+
+  const data_issues: Issues = {
+    version: packageJson.version,
+    metadata: {
+      fetch_time: new Date().toLocaleString(),
+      github: {
+        owner: fluxpressConfig.github.owner,
+        repo: fluxpressConfig.github.repo,
+      },
+    },
+    issues: await getIssues(fluxpressConfig, octokit),
+    labels: await getLabels(fluxpressConfig, octokit),
+    milestones: await getMilestones(fluxpressConfig, octokit),
+  }
+
+  return data_issues
+}
 
 async function getIssues(
   fluxpressConfig: FluxPressConfig,
@@ -101,28 +125,4 @@ async function getMilestones(
   }
 
   return milestones
-}
-
-export async function fetchDataIssues(): Promise<DataIssues> {
-  const fluxpressConfig = await readFluxPressConfig()
-  if (!fluxpressConfig) return
-
-  const GITHUB_TOKEN = readGitHubToken()
-  const octokit = new Octokit({ auth: GITHUB_TOKEN })
-
-  const data_issues: DataIssues = {
-    version: packageJson.version,
-    metadata: {
-      fetch_time: new Date().toLocaleString(),
-      github: {
-        owner: fluxpressConfig.github.owner,
-        repo: fluxpressConfig.github.repo,
-      },
-    },
-    issues: await getIssues(fluxpressConfig, octokit),
-    labels: await getLabels(fluxpressConfig, octokit),
-    milestones: await getMilestones(fluxpressConfig, octokit),
-  }
-
-  return data_issues
 }
