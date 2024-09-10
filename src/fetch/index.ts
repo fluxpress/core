@@ -1,9 +1,9 @@
-import { SupportDataTypes, SupportDataTypesMap } from './index-types.js'
+import { SupportDataType, SupportDataTypesMap } from './index-types.js'
 import { fetchIssues } from './issues.js'
 import { fetchUsers } from './users.js'
 
 type SupportDataTypesFetchFnMap = {
-  [K in SupportDataTypes]: () => Promise<SupportDataTypesMap[K]>
+  [K in SupportDataType]: () => Promise<SupportDataTypesMap[K]>
 }
 
 const fetchFnMap: SupportDataTypesFetchFnMap = {
@@ -11,7 +11,7 @@ const fetchFnMap: SupportDataTypesFetchFnMap = {
   users: fetchUsers,
 }
 
-export async function fetch<T extends SupportDataTypes>(
+export async function fetch<T extends SupportDataType>(
   dataType: T,
 ): Promise<SupportDataTypesMap[T]> {
   return await fetchFnMap[dataType]()
