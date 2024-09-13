@@ -51,7 +51,7 @@ export function readGitHubToken() {
   if (!GITHUB_TOKEN) {
     logger.warn(
       `
-未找到 GITHUB_TOKEN，将很快超过 GitHub API 请求速录限制。
+未找到 GITHUB_TOKEN，无法请求需要身份验证的数据内容，公共内容也将很快超过 GitHub API 的请求速录限制。
 
 开发环境下请在根目录下创建 .env 文件，
 然后写入 GITHUB_TOKEN=your-github-token，我们会自动读取它。
