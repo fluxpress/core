@@ -4,7 +4,10 @@ export interface FluxPressConfig {
   github: {
     owner: string
     repo: string
-    need_data: SupportDataType[]
   }
   theme: string
+}
+
+export interface ThemeConfigBase {
+  need_data: SupportDataType[]
 }

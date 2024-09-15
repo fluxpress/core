@@ -34,4 +34,4 @@ public/
 
 ### Others ###
 .env
-fluxpress.config.js
+fluxpress.config*

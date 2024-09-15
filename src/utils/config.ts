@@ -3,7 +3,7 @@ import path from 'node:path'
 import fs from 'fs-extra'
 
 import { logger } from './logger.js'
-import { FluxPressConfig } from './config-types.js'
+import { FluxPressConfig, ThemeConfigBase } from './config-types.js'
 import { APP_ROOT_PATH } from '../constants/path.js'
 
 export async function readFluxPressConfig() {
@@ -24,7 +24,7 @@ export async function readFluxPressConfig() {
   return fluxpressConfig
 }
 
-export async function readFluxPressThemeConfig<ThemeConfig>() {
+export async function readFluxPressThemeConfig<T extends ThemeConfigBase>() {
   const { theme } = await readFluxPressConfig()
   if (!theme) return
 
@@ -36,8 +36,7 @@ export async function readFluxPressThemeConfig<ThemeConfig>() {
     return
   }
 
-  const fluxpressThemeConfig: ThemeConfig = (await import(themeConfigPath))
-    .default
+  const fluxpressThemeConfig: T = (await import(themeConfigPath)).default
   if (!fluxpressThemeConfig) {
     logger.error(`请填写主题配置文件：${themeConfigFile}`)
     return
